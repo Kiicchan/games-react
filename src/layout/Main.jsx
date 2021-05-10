@@ -1,4 +1,3 @@
-import { Paper } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -7,10 +6,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        alignItems: "center"
-    },
-    content: {
-        margin: theme.spacing(2),
+        alignItems: "center",
         padding: theme.spacing(2)
     }
 }));
@@ -18,10 +14,8 @@ const useStyles = makeStyles((theme) => ({
 function Main(props) {
     const classes = useStyles()
     return (
-        <main className={classes.main}>
-            <Paper elevation={3} className={classes.content} style={props.style}>
-                {props.children}
-            </Paper>
+        <main className={classes.main} {...props}>
+            {props.children}
         </main>
     );
 }

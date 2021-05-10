@@ -10,29 +10,31 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     backgroundColor: "#444",
     color: "#FFF",
-    padding: theme.spacing(2),
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    padding: theme.spacing(1)
   },
   text: {
     display: "flex",
-    alignItems: "center",
-    '& *' : {
-      marginLeft: theme.spacing(2)
-    }
+    alignItems: "center"
+  },
+  icon: {
+    fontSize: "28px",
+    marginLeft: theme.spacing(1)
   }
 }));
 
 function Footer() {
-    const classes = useStyles()
-    return (
-      <footer className={classes.footer}>
-        <Paper square className={classes.content} elevation={0}>
-          <Typography className={classes.text} variant="body1" component="p">
-            <span>Desenvolvido por Marcos Chacon</span> <VideogameAssetIcon color="secondary" />
-          </Typography>
-        </Paper>
-      </footer>
-    );
-  }
-  
-  export default Footer;
+  const classes = useStyles()
+  return (
+    <footer className={classes.footer}>
+      <Paper square className={classes.content} elevation={0}>
+        <Typography className={classes.text} variant="body2" component="span">
+          Desenvolvido por Marcos Chacon
+        </Typography>
+        <VideogameAssetIcon className={classes.icon} color="secondary" />
+      </Paper>
+    </footer>
+  );
+}
+
+export default Footer;
