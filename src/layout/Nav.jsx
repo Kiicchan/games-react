@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -35,20 +35,27 @@ ListItemLink.propTypes = {
   to: PropTypes.string.isRequired,
 };
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 250,
   }
-});
+}));
 
 function Nav(props) {
   const classes = useStyles()
+  const [openNav, setOpenNav] = useState(false)
+  
+  useEffect(() => {   /*exportar a função de controle de estado do componente Nav para o Header (evitando o uso de Redux para um caso tão simples) */
+    window.setOpenNav = setOpenNav
+    return () => {window.setOpenNav = undefined}
+  }, [])
   return (
-    <Drawer {...props}>
+    <Drawer open={openNav} anchor="left" onClose={() => setOpenNav(false)} >
       <List className={classes.list}>
         <ListItemLink to="/home" primary="Home" icon={<IconHome />} />
         <ListItemLink to="/games" primary="Games" icon={<IconGames />}/>
         <Divider />
+        <ListItemLink to="/games/resta-um" primary="Resta Um" />
       </List>
     </Drawer>
   );

@@ -6,7 +6,7 @@ function Routes() {
     return (
         <Switch>
             <Route exact path="/home" component={Home} />
-            <Route exact path="/games" component={Games} />
+            <Route path="/games" component={Games} />
             <Redirect from='*' to='/home' />
         </Switch>
     )

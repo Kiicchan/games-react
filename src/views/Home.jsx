@@ -1,5 +1,5 @@
 import { Typography, Paper } from "@material-ui/core";
-import { Header, Footer, Main } from "../layout";
+import { Header, Main } from "../layout";
 import IconHome from "@material-ui/icons/Home";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -27,7 +27,6 @@ function Home() {
                     </Typography>
                 </Paper>
             </Main>
-            <Footer />
         </>
     )
 }
