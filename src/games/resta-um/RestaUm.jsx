@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import Game from "./Game";
 
 const useStyles = makeStyles((theme) => ({
     content: {
@@ -18,12 +19,10 @@ function RestaUm(props) {
 
     return(
         <Paper elevation = {3} className={classes.content}>
-            <div>
-                Este é o Resta Um
-            </div>
-        </Paper>
-        
+           <Game />
+        </Paper>        
     )
 }
+
 
 export default RestaUm;

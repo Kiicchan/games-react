@@ -1,0 +1,21 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    justify-content: center;
+}
+.cell {
+    padding: 8px
+}
+.highlight {
+    background-color: rgb(255, 228, 228);
+}
+.hole {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    border: solid black 1px;
+    box-sizing: border-box;
+}
