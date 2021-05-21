@@ -8,7 +8,7 @@ function Row(props) {
     )
 }
 
-function Cell({renderPiece, onCellClick, pos, highlight}) {
+function Cell({renderPiece, onCellClick, pos, highlight}) {    
     return (
         <div className={"cell"}>
             {renderPiece ? renderPiece(pos) : <div className={`hole ${highlight ? "highlight" : ""}`} onClick={() => onCellClick(pos)} />} 
@@ -16,7 +16,7 @@ function Cell({renderPiece, onCellClick, pos, highlight}) {
     )
 }
 
-function Board({boardState, renderPiece, onCellClick}) {
+function Board({boardState, renderPiece, onCellClick, availableMoves}) {
     return (
         <div className={"board"}>
             {boardState.map((rowItems, row) => {
@@ -24,11 +24,16 @@ function Board({boardState, renderPiece, onCellClick}) {
                     <Row key={row}>
                         {rowItems.map((isCell, col) => {
                             let cell
-                            if (isCell === 1) { 
-                                cell = <Cell key={col} 
+                            if (isCell === 1) {
+                                let isAvailable = false
+                                availableMoves.forEach((move) => {
+                                    if (row === move.row && col === move.col) { isAvailable = true }
+                                })
+                                cell = <Cell key={col}  //Célula sem Peça
                                             pos={{ row, col }} 
-                                            onCellClick={onCellClick}/> 
-                            } else if (isCell === 2) {
+                                            onCellClick={onCellClick} 
+                                            highlight={isAvailable} /> 
+                            } else if (isCell === 2) {  //Célula com Peça
                                 cell = <Cell key={col}
                                             pos={{ row, col }}
                                             renderPiece={renderPiece} />

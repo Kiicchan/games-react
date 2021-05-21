@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import Board from "./components/Board";
 import Piece from "./components/Piece";
 
@@ -44,47 +44,46 @@ function Game(props) {
         [0,0,2,2,2,0,0],
     ])
 
-    const selectedPiece = useRef({row: null, col: null})    //Posição da peça selecionada
-    const previousSetSelect = useRef(() => {})              //função de estado da peça da última posição
+    const [availableMoves, setAvailableMoves] = useState([])    //Lista de movimentos possíveis
+    const [selectedPiece, setSelectedPiece] = useState({ row: null, col: null })    //Posição da peça selecionada
     const clearSelect = () => {                             //reset de seleção de peça
-        previousSetSelect.current(false)
-        selectedPiece.current = {row: null, col: null}
-        previousSetSelect.current = () => {}
+        setSelectedPiece({ row: null, col: null })
+        setAvailableMoves([])
     }
-    
-    const onPieceClick = useCallback((pos, setSelect) => {
-        if (selectedPiece.current.row === pos.row && selectedPiece.current.col === pos.col) {
+
+    const onPieceClick = useCallback((pos) => {
+        if (selectedPiece.row === pos.row && selectedPiece.col === pos.col) {
             clearSelect()
         } else {
-            previousSetSelect.current(false)
-            setSelect(true)
-            selectedPiece.current = pos
-            previousSetSelect.current = setSelect
+            setAvailableMoves(getAvailableMoves(pos, boardState))
+            setSelectedPiece(pos)
         }
-    }, [])
-    
+    }, [boardState, selectedPiece])
+
     const onCellClick = useCallback((newPos) => {
         let isAvailable = false
-        let availableMoves = getAvailableMoves(selectedPiece.current, boardState)
-        availableMoves.forEach((availableMove) => {
-            if (newPos.row === availableMove.row && newPos.col === availableMove.col) { isAvailable = true }
+        let availableMoves = getAvailableMoves(selectedPiece, boardState)
+        availableMoves.forEach((move) => {
+            if (newPos.row === move.row && newPos.col === move.col) { isAvailable = true }
         })
 
         if (isAvailable) {
-            let newBoardState = movePiece(selectedPiece.current, newPos, boardState)
+            let newBoardState = movePiece(selectedPiece, newPos, boardState)
             setBoardState(newBoardState)
         }
         
         clearSelect()
-    }, [boardState])
-
+    }, [boardState, selectedPiece])
+    
     return (
         <>
             <Board 
                 boardState={boardState}
                 onCellClick={onCellClick}
                 renderPiece={(pos) => <Piece pos={pos}
-                                        onPieceClick={onPieceClick} />}
+                                        onPieceClick={onPieceClick}
+                                        select={pos.col === selectedPiece.col && pos.row === selectedPiece.row} />}
+                availableMoves={availableMoves}
             />
         </>
     )
