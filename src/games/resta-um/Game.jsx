@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import Board from "./components/Board";
 import Piece from "./components/Piece";
+import Display from "./components/Display";
 
 function movePiece(oldPos, newPos, boardState) {
     let newBoardState = boardState.slice()
@@ -31,6 +32,18 @@ function getBoardValue(pos, boardState) {
     } else {
         return null
     }
+}
+
+function countPieces(boardState) {
+    let total = 0
+    for (let i = 0; i < boardState.length; i++) {
+        const row = boardState[i];
+        for (let j = 0; j < row.length; j++) {
+            const cell = row[j];
+            if (cell === 2) { total++ }
+        }
+    }
+    return total
 }
 
 function Game(props) {
@@ -77,6 +90,7 @@ function Game(props) {
     
     return (
         <>
+            <Display number={countPieces(boardState)}/>
             <Board 
                 boardState={boardState}
                 onCellClick={onCellClick}
@@ -85,6 +99,15 @@ function Game(props) {
                                         select={pos.col === selectedPiece.col && pos.row === selectedPiece.row} />}
                 availableMoves={availableMoves}
             />
+            <button onClick={() => setBoardState([
+                [0, 0, 2, 2, 2, 0, 0],
+                [0, 0, 2, 2, 2, 0, 0],
+                [2, 2, 2, 2, 2, 2, 2],
+                [2, 2, 2, 1, 2, 2, 2],
+                [2, 2, 2, 2, 2, 2, 2],
+                [0, 0, 2, 2, 2, 0, 0],
+                [0, 0, 2, 2, 2, 0, 0],
+            ])}>Reset</button>
         </>
     )
 }

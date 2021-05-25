@@ -55,7 +55,7 @@ function Nav(props) {
         <ListItemLink to="/home" primary="Home" icon={<IconHome />} />
         <ListItemLink to="/games" primary="Games" icon={<IconGames />}/>
         <Divider />
-        <ListItemLink to="/games/resta-um" primary="Resta Um" />
+        <ListItemLink to="/games/resta-um" primary="Resta 1" />
       </List>
     </Drawer>
   );

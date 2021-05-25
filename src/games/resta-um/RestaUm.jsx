@@ -13,7 +13,7 @@ function RestaUm(props) {
     const classes = useStyles()
     
     useEffect(() => {
-        if(props.setTitle) {props.setTitle("Resta Um")}
+        if(props.setTitle) {props.setTitle("Resta 1")}
         return () => {if(props.setTitle) {props.setTitle("Games")}}
     })
 
