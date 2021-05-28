@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './main/App';
 import reportWebVitals from './reportWebVitals';
+import { unstable_createMuiStrictModeTheme, ThemeProvider } from '@material-ui/core/styles';  // unstable_createMuiStrictModeTheme usada em desenvolvimento para não gerar alertas do findDOMnode em modo Estrito.
+// substituir por createMuiTheme em produção 
+
+const theme = unstable_createMuiStrictModeTheme();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

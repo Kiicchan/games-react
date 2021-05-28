@@ -21,7 +21,7 @@ function Board({boardState, renderPiece, onCellClick, availableMoves}) {
         <div className={"board"}>
             {boardState.map((rowItems, row) => {
                 return (
-                    <Row key={row}>
+                    <Row key={row.toString()}>
                         {rowItems.map((isCell, col) => {
                             let cell
                             if (isCell === 1) {
@@ -29,12 +29,12 @@ function Board({boardState, renderPiece, onCellClick, availableMoves}) {
                                 availableMoves.forEach((move) => {
                                     if (row === move.row && col === move.col) { isAvailable = true }
                                 })
-                                cell = <Cell key={col}  //Célula sem Peça
+                                cell = <Cell key={col.toString()}  //Célula sem Peça
                                             pos={{ row, col }} 
                                             onCellClick={onCellClick} 
                                             highlight={isAvailable} /> 
                             } else if (isCell === 2) {  //Célula com Peça
-                                cell = <Cell key={col}
+                                cell = <Cell key={col.toString()}
                                             pos={{ row, col }}
                                             renderPiece={renderPiece} />
                             }
