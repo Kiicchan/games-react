@@ -3,8 +3,9 @@ import { Typography, Paper } from "@material-ui/core";
 import { Header, Main } from "../layout";
 import IconGames from "@material-ui/icons/Games";
 import { makeStyles } from "@material-ui/core/styles";
-import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
+import { Switch, Route, Redirect, useRouteMatch, Link } from "react-router-dom";
 import { RestaUm } from "../games"
+import RestaUmCard from "../games/resta-um/Card"
 
 const useStyles = makeStyles((theme) => ({
     content: {
@@ -30,6 +31,7 @@ function Games() {
                                 Escolha um Jogo
                             </Typography>
                         </Paper>
+                        <RestaUmCard component={Link} to='/games/resta-um' />
                     </Route>
                     <Route exact path={`${path}/resta-um`} render={(props) => <RestaUm {...props} setTitle={setTitle} />} /> {/*injeção de dependência na rota */}
                     <Redirect from={`${path}/*`} to='/games' />

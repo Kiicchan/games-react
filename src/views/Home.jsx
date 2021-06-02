@@ -20,8 +20,8 @@ function Home() {
                 <Paper elevation={3} className={classes.content} >
                     <Typography variant="body1" component="p" align="justify">
                         Seja bem vindo. Esta é uma aplicação React de teste com o intuito de aprender
-                        e desenvolver habilidades com o framework.
-                        Nesta aplicação foram usados os elementos Material UI e React Router.
+                        e desenvolver habilidades com a biblioteca.
+                        Nesta aplicação foram usados os componentes do Material UI e React Router.
                         Para acessar os jogos, clique na opção de
                         Menu no topo da tela.
                     </Typography>
