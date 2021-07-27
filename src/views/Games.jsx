@@ -4,7 +4,7 @@ import { Header, Main } from "../layout";
 import IconGames from "@material-ui/icons/Games";
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, Redirect, useRouteMatch, Link } from "react-router-dom";
-import { RestaUm } from "../games"
+import { RestaUm, Minesweeper } from "../games"
 import RestaUmCard from "../games/resta-um/Card"
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +34,7 @@ function Games() {
                         <RestaUmCard component={Link} to='/games/resta-um' />
                     </Route>
                     <Route exact path={`${path}/resta-um`} render={(props) => <RestaUm {...props} setTitle={setTitle} />} /> {/*injeção de dependência na rota */}
+                    <Route exact path={`${path}/minesweeper`} render={(props) => <Minesweeper {...props} setTitle={setTitle} />} />
                     <Redirect from={`${path}/*`} to='/games' />
                 </Switch>
             </Main>
