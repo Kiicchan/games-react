@@ -1,18 +1,18 @@
-.board {
+.resta-um .board {
     display: flex;
     flex-direction: column;
 }
-.row {
+.resta-um .row {
     display: flex;
     justify-content: center;
 }
-.cell {
+.resta-um .cell {
     padding: 8px
 }
-.highlight {
+.resta-um .highlight {
     background-color: rgb(255, 168, 168);
 }
-.hole {
+.resta-um .hole {
     height: 30px;
     width: 30px;
     border-radius: 15px;

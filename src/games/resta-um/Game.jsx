@@ -89,7 +89,7 @@ function Game(props) {
     }, [boardState, selectedPiece])
     
     return (
-        <>
+        <div className='resta-um'>
             <Display number={countPieces(boardState)}/>
             <Board 
                 boardState={boardState}
@@ -108,7 +108,7 @@ function Game(props) {
                 [0, 0, 2, 2, 2, 0, 0],
                 [0, 0, 2, 2, 2, 0, 0],
             ])}>Reset</button>
-        </>
+        </div>
     )
 }
 

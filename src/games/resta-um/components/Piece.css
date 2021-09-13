@@ -1,13 +1,13 @@
-.piece {
+.resta-um .piece {
     height: 30px;
     width: 30px;
     border-radius: 15px; 
 }
 
-.select {
+.resta-um .select {
     background-color: rgb(155, 155, 39);
 }
 
-.black {
+.resta-um .black {
     background-color: black;
 }

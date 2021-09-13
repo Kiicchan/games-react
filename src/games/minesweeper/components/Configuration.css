@@ -1,0 +1,41 @@
+.minesweeper .form-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.minesweeper .form-container > * {
+    margin: 3px;
+}
+
+.minesweeper .form-container input {
+    max-width: 3em;
+    color: white;
+    background-color: #555;
+}
+
+.minesweeper .form-container select {
+    color: white;
+    background-color: #555;
+}
+
+.minesweeper .form-container label {
+    margin: 0 5px;    
+    color: #333;
+}
+
+.minesweeper .form-container button {
+    margin: 0 5px;
+    border-radius: 0;
+    color: #555;
+    font-weight: 700;
+    border-top: 2px solid #BBB;
+    border-left: 2px solid #BBB;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+.minesweeper .form-container button:active {
+    background-color: #555;
+    color: #BBB;
+}
