@@ -32,7 +32,7 @@ function Games() {
                                 Escolha um Jogo
                             </Typography>
                         </Paper>
-                        <Box display="flex" flexDirection="row" justifyContent="space-around" width="50%">
+                        <Box display="flex" flexDirection="row" justifyContent="space-evenly" alignSelf="stretch" flexWrap="wrap" gridGap="20px">
                             <RestaUmCard component={Link} to='/games/resta-um' />
                             <MineSweeperCard component={Link} to='/games/minesweeper' />
                         </Box>

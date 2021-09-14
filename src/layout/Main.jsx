@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         alignItems: "center",
         padding: theme.spacing(2)
     }
