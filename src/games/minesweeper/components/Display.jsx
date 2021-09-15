@@ -3,7 +3,7 @@ export default function Display({value}) {
     return (
         <div className='display'>
             <div className='placeholder text'>{'888'}</div>
-            <div className='text'>{stringFormat(value)}</div>
+            <div className='text'>{value > 999 ? '999' : stringFormat(value)}</div>
         </div>
     )
 }
