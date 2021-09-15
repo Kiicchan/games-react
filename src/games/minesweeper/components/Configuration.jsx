@@ -48,12 +48,18 @@ export default function Configuration(props) {
             {
                 difficulty.current.value === 'custom' ?
                 <form onSubmit={(event) => {event.preventDefault(); handleCustomChange(event)}}>
-                    <label htmlFor="rows">Linhas:</label>
-                    <input defaultValue={state.gameConfiguration.rows} min={5} max={30} type="number" name="rows" id="rows" required />
-                    <label htmlFor="cols">Colunas:</label>
-                    <input defaultValue={state.gameConfiguration.cols} min={5} max={30} type="number" name="cols" id="cols" required/>
-                    <label htmlFor="mines">Minas:</label>
-                    <input defaultValue={state.gameConfiguration.mines} min={1} max={900} type="number" name="mines" id="mines" required/>
+                    <div>
+                        <label htmlFor="rows">Linhas:</label>
+                        <input defaultValue={state.gameConfiguration.rows} min={5} max={30} type="number" name="rows" id="rows" required />
+                    </div>
+                    <div>
+                        <label htmlFor="cols">Colunas:</label>
+                        <input defaultValue={state.gameConfiguration.cols} min={5} max={30} type="number" name="cols" id="cols" required/>
+                    </div>
+                    <div>
+                        <label htmlFor="mines">Minas:</label>
+                        <input defaultValue={state.gameConfiguration.mines} min={1} max={900} type="number" name="mines" id="mines" required/>
+                    </div>
                     <button type="submit">Iniciar</button>
                 </form>                
                 : null
